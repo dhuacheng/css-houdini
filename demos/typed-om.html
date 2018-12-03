@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css typed OM</title>
+    <style>
+        #test {
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+        input, button {
+            font-size: 20px;
+            padding: 12px;
+        }
+        input {
+            width: 500px;
+        }
+        .mgt-20 {
+            margin-top: 20px
+        }
+        .mgb-20 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="test"></div>
+    <div class="mgb-20 mgt-20"><input id="value" /></div>
+    <button id="btnSet">set</button>
+    <button id="btnGet">get</button>
+    <button id="btnDel">delete background</button>
+    <button id="btnHas">has background</button>
+    
+    <script>
+
+        // 设置属性
+        const div = document.getElementById('test');
+        const btnSet = document.getElementById('btnSet');
+        btnSet.addEventListener('click', () => {
+            div.attributeStyleMap.set('background', 'red');
+            div.attributeStyleMap.set('opacity', .5);
+            div.attributeStyleMap.set('width', CSS.px(500));
+            // console.log(div.attributeStyleMap.__proto__ );
+        }, false);
+        
+        // 获取css属性值
+        const btn2 = document.getElementById('btnGet');
+        const input = document.getElementById('value');
+        btnGet.addEventListener('click', () => {
+            const map = div.attributeStyleMap;
+            const v1 = map.get('opacity').value;
+            const v2 = map.get('width');
+            const v3 = map.get('background');
+            console.log(v1, '----', v2, map.get('background'));
+            input.value = `opacity: ${v1}; width: ${v2}; color:${v3}`;
+        }, false);
+        
+        // delete
+        const btnDel = document.getElementById('btnDel');
+        btnDel.addEventListener('click', () => {
+            div.attributeStyleMap.delete('background');
+        }, false);
+
+        
+        const btnHas = document.getElementById('btnHas');
+        btnHas.addEventListener('click', () => {
+            alert(div.attributeStyleMap.has('background'));
+        }, false);
+    </script>
+</body>
+</html>

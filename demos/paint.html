@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .section {
+            --border-color: yellow;
+            background-color: green;
+            background-image: paint(awesomePattern);
+            height: 200px;
+            width:200px;
+        }
+
+        .section2 {
+            width: 200px;
+            height: 200px;
+        }
+        .section2::after {
+            content: paint(awesomePattern);
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="section"></div>
+    <div class="section2"></div>
+    <script>
+        CSS.paintWorklet.addModule('js/paintWorklet.js');
+    </script>
+</body>
+</html>

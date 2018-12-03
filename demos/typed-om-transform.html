@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: green;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+       
+        const rotate = new CSSRotate(0, 0, 1, CSS.deg(0));
+        const scale = new CSSScale(CSS.number(0.5), CSS.number(0.5));
+        const translate = new CSSTranslate(CSS.percent(-50), CSS.percent(-50))
+        const transform = new CSSTransformValue([rotate, scale, translate]);
+        const box = document.querySelector('#box');
+        box.attributeStyleMap.set('transform', transform);
+        const draw = () => {
+            requestAnimationFrame(draw);
+            transform[0].angle.value += 5;
+            if (transform[1].x.value < 2) {
+                transform[1].x.value += 0.005;
+                transform[1].y.value += 0.005;
+            }
+            box.attributeStyleMap.set('transform', transform);
+        }
+        draw();
+        
+    </script>
+    
+</body>
+</html>

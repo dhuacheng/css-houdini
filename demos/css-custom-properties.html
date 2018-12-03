@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    :root{
+        --s-fs: 12px;
+        --m-fs: 14px;
+        --l-fs: 16px;
+        --xl-fs: 18px;
+
+        --bg: #EBEEF5;
+        --color-gray: #909399;
+        --color-danger: #F56C6C;
+        --color-success: #67C23A;
+        --color-warning: #E6A23C;
+        --color-default: #303133;
+        
+        --s-space: 5px;
+        --m-space: 10px;
+        --l-space: 15px;
+        --xl-space: 20px;
+    }
+    body {
+        --width: 400px;
+        --height: 300px;
+    }
+    .div1 {
+        width: 200px;
+        height: 200px;
+        background: var(--bg);
+        font-size: var(--l-fs);
+        color: var(--color-danger);
+    }
+    .div2 {
+        background: var(--color-success);
+        width: var(--width);
+        height: var(--height);
+        font-size: var(--xx-fs, 30px);
+        margin-top: var(--xl-space);
+    }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        文本文本
+    </div>
+    <div class="div2">
+        文本文本
+    </div>
+</body>
+</html>
